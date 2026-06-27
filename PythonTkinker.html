@@ -1,0 +1,233 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Tkinker Python</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript
+      ><link rel="stylesheet" href="assets/css/noscript.css"
+    /></noscript>
+  </head>
+  <body class="is-preload">
+    
+
+      <!-- Header -->
+      <header id="header">
+        <a href="index.html" class="logo">Ianis Panga</a>
+      </header>
+
+      <!-- Nav -->
+      <nav id="nav">
+        <ul class="links">
+          <li class="active"><a href="index.html">Projects</a></li>
+        </ul>
+        <ul class="icons">
+          <li>
+            <a
+              href="https://www.linkedin.com/in/ianis-panga-a02970305/"
+              class="icon brands alt fa-linkedin"
+              ><span class="label">Linkedin</span></a
+            >
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Main -->
+      <div id="main">
+        <article class="post">
+          <header class="major">
+            <h1>Python Tkinker App Multi-tool: Password Generator, Image Grabber and Website Pinger</h1>
+            <p>
+              Built a desktop application using Python and Tkinter featuring a password generator, web image grabber, and website status checker. This project helped me practise GUI development, user input handling, HTTP requests, file management, and working with multiple Python libraries in a single application.
+            </p>
+          </header>
+
+          <h2>Overview</h2>
+          <p>
+            This project is a desktop application built with Python and Tkinter that combines three utilities into a single interface: a password generator, a web image grabber, and a website availability checker. The goal was to practise GUI development, user input handling, networking, and working with external Python libraries while creating something practical.
+          </p>
+
+          <h2>Skills Demonstrated</h2>
+          <ul>
+          <li>Python programming</li>
+          <li>GUI development with Tkinter</li>
+          <li>Object-oriented programming</li>
+          <li>User input validation</li>
+          <li>HTTP requests</li>
+          <li>Web scraping fundamentals</li>
+          <li>Working with APIs and URLs</li>
+          <li>Exception handling</li>
+          <li>File handling</li>
+          <li>Password generation</li>
+          </ul>
+
+          <h2>Tools Used</h2>
+          <ul>
+          <li>Python</li>
+          <li>Tkinter</li>
+          <li>Requests</li>
+          <li>BeautifulSoup4</li>
+          <li>Pillow (PIL)</li>
+          <li>VS Code</li>
+          </ul>
+
+          <h2>Process</h2>
+
+          <h3>Password Generator</h3>
+          <p>
+            The password generator asks the user to enter the desired password length. Once submitted, the application randomly selects letters, numbers and special characters to generate a password matching the requested length.
+          </p>
+          <span class="image main">
+            <img
+              src="/images/TkinkerPython/video_password_generator.gif"
+            />
+          </span>
+
+          <h3>Web Image Grabber</h3>
+          <p>The Web Image Grabber allows the user to enter any webpage URL. The application downloads the webpage, searches for image tags using BeautifulSoup, and downloads the first available image onto the user's computer. The downloaded image is also displayed inside the application for convenience.</p>
+
+          <span class="image main">
+            <img
+              src="/images/TkinkerPython/video_web_image_grabber.gif"
+            />
+          </span>
+
+          <h3>Website Pinger</h3>
+          <p>
+            The Website Pinger checks whether a website is currently online. After entering a URL, the application sends an HTTP request using the Requests library and reports whether the website responded successfully. Invalid or unreachable URLs are handled using exception handling so the application doesn't crash.
+          </p>
+
+          <span class="image main">
+            <img
+              src="/images/TkinkerPython/video_ping_website.gif"
+            />
+          </span>
+
+          <h2>Code Breakdown</h2>
+          <h3>Building the Interface</h3>
+          <p>Each tool uses the same main window, but when switching between tools the previous widgets are removed before creating new ones. This prevents different sections from overlapping while keeping the navigation buttons visible throughout the application.</p>
+
+          <h3>Password Generation Logic</h3>
+          <p>
+            The password generator uses Python's built-in string module to access letters, numbers and punctuation. These characters are combined into a pool, and random.choice() selects characters until the requested password length has been reached before displaying the finished password on screen.
+          </p>
+
+          <span class="image main">
+            <img
+              src="/images/TkinkerPython/password_generator_1.jpg"
+            />
+          </span>
+
+          <span class="image main">
+            <img
+              src="/images/TkinkerPython/password_generator_2.jpg"
+            />
+          </span>
+
+          <h3>Checking Website Status</h3>
+          <p>
+            The Website Pinger sends an HTTP request using the Requests library. If the website responds successfully, the application displays that it is online. Invalid URLs, connection failures and other network errors are handled using try and except, allowing the program to continue running instead of crashing.
+          </p>
+
+          <span class="image main">
+            <img
+              src="/images/TkinkerPython/ping_website.jpg"
+            />
+          </span>
+
+          <h3>Downloading Images</h3>
+          <p>
+            The Web Image Grabber downloads the HTML of the webpage and uses BeautifulSoup to locate image tags. The application retrieves the first valid image, saves it into a local folder and displays it inside the application after resizing it to fit the interface.
+          </p>
+
+          <span class="image main">
+            <img
+              src="/images/TkinkerPython/web_image_grabber.jpg"
+            />
+          </span>
+
+          <span class="image main">
+            <img
+              src="/images/TkinkerPython/web_image_grabber_2.jpg"
+            />
+          </span>
+
+          <span class="image main">
+            <img
+              src="/images/TkinkerPython/web_image_grabber_3.jpg"
+            />
+          </span>
+
+          <p>Here's the local file it saved the imaged to.</p>
+
+          <span class="image main">
+            <img
+              src="/images/TkinkerPython/web_image_grabber_4.jpg"
+            />
+          </span>
+
+          <h2>What I Learned</h2>
+          <p>
+            Building this application helped me become much more comfortable with Python GUI development using Tkinter. I learned how to work with multiple Python libraries in a single project, handle user input, make HTTP requests, scrape webpages, download files and display images inside a desktop application. It also gave me more confidence organising larger Python projects by separating different features into their own functions while keeping everything working together in one interface.
+          </p>
+
+          <ul class="actions special">
+            <li>
+              <a href="../index.html#projects" class="button"
+                >Back to Projects</a
+              >
+            </li>
+          </ul>
+        </article>
+      </div>
+
+      <!-- Footer -->
+      <footer id="footer">
+        <section></section>
+        <section class="split contact">
+          <section class="alt">
+            <h3>Location</h3>
+            <p>Northampton, Northamptonshire, England</p>
+          </section>
+          <section>
+            <h3>Email</h3>
+            <p><a href="#">ianisp.contact@gmail.com</a></p>
+          </section>
+          <section>
+            <h3>Social</h3>
+            <ul class="icons alt">
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/ianis-panga-a02970305/"
+                  class="icon brands alt fa-linkedin"
+                  ><span class="label">Linkedin</span></a
+                >
+              </li>
+            </ul>
+          </section>
+        </section>
+      </footer>
+
+      <!-- Copyright -->
+      <div id="copyright">
+        <ul>
+          <li>&copy; Untitled</li>
+          <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,324 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Full-Stack Website</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript
+      ><link rel="stylesheet" href="assets/css/noscript.css"
+    /></noscript>
+  </head>
+  <body class="is-preload">
+    
+
+      <!-- Header -->
+      <header id="header">
+        <a href="index.html" class="logo">Ianis Panga</a>
+      </header>
+
+      <!-- Nav -->
+      <nav id="nav">
+        <ul class="links">
+          <li class="active"><a href="index.html">Projects</a></li>
+        </ul>
+        <ul class="icons">
+          <li>
+            <a
+              href="https://www.linkedin.com/in/ianis-panga-a02970305/"
+              class="icon brands alt fa-linkedin"
+              ><span class="label">Linkedin</span></a
+            >
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Main -->
+      <div id="main">
+        <article class="post">
+          <header class="major">
+            <h1>Creating a Self-Hosted Full-Stack Web System with Remote Database Management</h1>
+            <p>
+              For this project I wanted to challenge myself by building an entire full-stack web application instead of just a frontend website. Rather than relying on cloud services, I hosted everything myself using a Raspberry Pi running Linux and MariaDB. The project allows users to create accounts, upload media, organise it into password-protected folders ("Bubblies"), and securely retrieve their files through a web interface.
+            </p>
+          </header>
+
+          <h2>Overview</h2>
+          <p>
+            This project is a self-hosted full-stack web application built using HTML, CSS, JavaScript, Python (Flask), and MariaDB running on a Raspberry Pi.
+
+            Users can create accounts, log in, create password-protected media collections called Bubblies, and upload images or videos that are linked to their own account. Instead of using a cloud provider, I configured my own Raspberry Pi as the backend server, handling database requests, authentication and file management across my local network.
+
+            The goal of this project was to understand how frontend websites communicate with backend servers, databases and storage systems while gaining hands-on experience with self-hosting.
+          </p>
+
+          <h2>Skills Demonstrated</h2>
+          <ul>
+          <li>Full-stack web development</li>
+          <li>Frontend development (HTML, CSS & JavaScript)</li>
+          <li>Backend development with Python Flask</li>
+          <li>REST API development</li>
+          <li>MariaDB database management</li>
+          <li>User authentication</li>
+          <li>Password hashing</li>
+          <li>CRUD operations</li>
+          <li>File upload handling</li>
+          <li>Network file sharing</li>
+          <li>Linux server administration</li>
+          <li>Raspberry Pi deployment</li>
+          </ul>
+
+          <h2>Tools Used</h2>
+          <ul>
+          <li>HTML5</li>
+          <li>CSS3</li>
+          <li>JavaScript</li>
+          <li>Python</li>
+          <li>Flask</li>
+          <li>MariaDB</li>
+          <li>Raspberry Pi</li>
+          <li>Linux</li>
+          <li>PuTTY (SSH)</li>
+          <li>VS Code</li>
+          </ul>
+
+          <h2>Process</h2>
+
+          <h3>User Authentication</h3>
+          <p>
+            When visiting the website for the first time, users create an account through the signup page. Their details are securely stored inside a MariaDB database hosted on my Raspberry Pi. Returning users can log in using those credentials, with the website validating them before granting access.
+          </p>
+          <span class="image main">
+            <img
+              src="/images/FullStackWeb/signup.jpg"
+            />
+          </span>
+
+          <span class="image main">
+            <img
+              src="/images/FullStackWeb/login.jpg"
+            />
+          </span>
+
+          <h3>Creating Bubblies</h3>
+          <p>After logging in, users can create password-protected collections called Bubblies. Each Bubbly acts as its own private media folder where images and videos can later be uploaded.
+
+          Users can also rename, delete or access existing Bubblies, with password verification required before viewing any stored media.</p>
+
+          <span class="image main">
+            <img
+              src="/images/FullStackWeb/indexpageshowcase.jpg"
+            />
+          </span>
+
+          <span class="image main">
+            <img
+              src="/images/FullStackWeb/showcasingbubblycreation.jpg"
+            />
+          </span>
+
+          <span class="image main">
+            <img
+              src="/images/FullStackWeb/showcasingbubblycreation2.jpg"
+            />
+          </span>
+
+          <span class="image main">
+            <img
+              src="/images/FullStackWeb/showcasingbubblycreation3.jpg"
+            />
+          </span>
+
+          <h3>Media Management</h3>
+          <p>
+            Once inside a Bubbly, users can upload images and videos through the web interface.
+
+            Rather than storing the files directly inside the database, they're automatically saved to a shared storage location while the database stores information such as file paths, media types and ownership. This keeps the database lightweight while still allowing the website to retrieve files whenever they're needed.
+          </p>
+
+         <span class="image main">
+            <img
+              src="/images/FullStackWeb/uploadingfiles.jpg"
+            />
+          </span>
+
+          <span class="image main">
+            <img
+              src="/images/FullStackWeb/uploadingfiles2.jpg"
+            />
+          </span>
+
+          <span class="image main">
+            <img
+              src="/images/FullStackWeb/editingnamebubbly.jpg"
+            />
+          </span>
+
+          <span class="image main">
+            <img
+              src="/images/FullStackWeb/editingnamebubbly2.jpg"
+            />
+          </span>
+
+          <h3>Building the Backend</h3>
+          <p>To power the application, I built a Flask backend running on the Raspberry Pi.
+
+          The Flask application exposes API endpoints that handle user registration, login, Bubbly management and media uploads. The frontend communicates with these endpoints using JavaScript's Fetch API, allowing the website and database to exchange information without refreshing the page.</p>
+          
+         <span class="image main">
+            <img
+              src="/images/FullStackWeb/putty.jpg"
+            />
+          </span>
+
+         <span class="image main">
+            <img
+              src="/images/FullStackWeb/appdotpyshowcase.jpg"
+            />
+          </span>
+
+          <h3>Self-Hosted Storage</h3>
+          <p>
+            Instead of relying on services like AWS or Google Drive, I wanted to understand how local hosting works.
+
+            I shared a folder from my Windows PC across my home network and mounted it on the Raspberry Pi, allowing uploaded files to be stored automatically while still being accessible through the website.
+
+            Although it isn't designed as a production solution, it taught me how Linux mounting, network shares and file permissions work together.
+          </p>
+
+          <span class="image main">
+            <img
+              src="/images/FullStackWeb/bubblyuploadsconnectionwithpi.jpg"
+            />
+          </span>
+
+          <span class="image main">
+            <img
+              src="/images/FullStackWeb/bubblyuploadsconnectionwithpi2.jpg"
+            />
+          </span>
+
+          <h2>Code Breakdown</h2>
+          <h3>Frontend Communication</h3>
+          <p>
+            The frontend uses JavaScript to collect user input and send requests to the Flask backend. Each action—such as logging in, creating a Bubbly or uploading media—is handled through API requests, allowing the page to update dynamically without reloading
+          </p>
+
+          <span class="image main">
+            <img
+              src="/images/FullStackWeb/indexjscode.jpg"
+            />
+          </span>
+
+          <h3>Flask API</h3>
+          <p>
+            The Flask application acts as the bridge between the website and MariaDB.
+
+            Each endpoint receives requests from the frontend, validates the supplied data, performs database operations and returns a response back to the browser.
+
+            This separated the frontend from the backend, making the project much easier to organise as it grew.
+          </p>
+
+          <span class="image main">
+            <img
+              src="/images/FullStackWeb/validationjs.jpg"
+            />
+          </span>
+          
+          <h3>Database Design</h2>
+          <p>
+            MariaDB stores all user accounts, Bubblies and uploaded media records.
+
+            Relationships between tables allow uploaded files to be linked back to both the correct user and the correct Bubbly, ensuring users only access their own content.
+          </p>
+
+          <span class="image main">
+            <img
+              src="/images/FullStackWeb/mariadbshowcase.jpg"
+            />
+          </span>
+
+          <h3>File Storage</h2>
+          <p>
+            Uploaded media files are written to a mounted network folder rather than directly into the database.
+
+            The application simply stores each file's location inside MariaDB, making it possible to quickly retrieve and display images or videos without unnecessarily increasing database size.
+          </p>
+
+          <span class="image main">
+            <img
+              src="/images/FullStackWeb/storedvideos.jpg"
+            />
+          </span>
+
+          <h2>What I Learned</h2>
+          <p>
+            This project was one of the biggest learning experiences I've had because it combined so many different technologies into one application.
+
+            Before building it, I'd only worked on frontend websites and small Python programs. This was the first time I had to think about how everything connects together frontend, backend, databases, APIs, Linux, networking and storage.
+
+           </p> 
+           <p>I learned how websites communicate with servers, how APIs pass information between the frontend and backend, how to structure a relational database, and how to host services on a Raspberry Pi instead of relying on cloud platforms. I also became much more comfortable working with Linux, SSH, Flask and MariaDB while troubleshooting problems across multiple systems.
+
+            More than anything, this project taught me how all the individual skills I'd been learning fit together to build a complete working application.
+          </p>
+
+          <ul class="actions special">
+            <li>
+              <a href="../index.html#projects" class="button"
+                >Back to Projects</a
+              >
+            </li>
+          </ul>
+        </article>
+      </div>
+
+      <!-- Footer -->
+      <footer id="footer">
+        <section></section>
+        <section class="split contact">
+          <section class="alt">
+            <h3>Location</h3>
+            <p>Northampton, Northamptonshire, England</p>
+          </section>
+          <section>
+            <h3>Email</h3>
+            <p><a href="#">ianisp.contact@gmail.com</a></p>
+          </section>
+          <section>
+            <h3>Social</h3>
+            <ul class="icons alt">
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/ianis-panga-a02970305/"
+                  class="icon brands alt fa-linkedin"
+                  ><span class="label">Linkedin</span></a
+                >
+              </li>
+            </ul>
+          </section>
+        </section>
+      </footer>
+
+      <!-- Copyright -->
+      <div id="copyright">
+        <ul>
+          <li>&copy; Untitled</li>
+          <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

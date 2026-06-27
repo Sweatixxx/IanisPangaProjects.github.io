@@ -1,0 +1,259 @@
+<!doctype html>
+<html>
+  <head>
+    <title>GhostShift</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript
+      ><link rel="stylesheet" href="assets/css/noscript.css"
+    /></noscript>
+  </head>
+  <body class="is-preload">
+    
+
+      <!-- Header -->
+      <header id="header">
+        <a href="index.html" class="logo">Ianis Panga</a>
+      </header>
+
+      <!-- Nav -->
+      <nav id="nav">
+        <ul class="links">
+          <li class="active"><a href="index.html">Projects</a></li>
+        </ul>
+        <ul class="icons">
+          <li>
+            <a
+              href="https://www.linkedin.com/in/ianis-panga-a02970305/"
+              class="icon brands alt fa-linkedin"
+              ><span class="label">Linkedin</span></a
+            >
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Main -->
+      <div id="main">
+        <article class="post">
+          <header class="major">
+            <h1>GhostShift: A Secure E-Commerce Web Application</h1>
+            <p>
+              Built a functional e-commerce website from scratch using PHP, MySQL and JavaScript.
+              Developed secure authentication with password hashing and implemented protections
+              against common web attacks including SQL injection.
+            </p>
+          </header>
+
+          <div style="text-align: center;">
+              <a href="https://sweatixxx.github.io/GhostShift/#" class="button primary" target="_blank">
+                  View Website
+              </a>
+              <a href="https://github.com/Sweatixxx/GhostShift" class="button primary" target="_blank">
+                  View github repo
+              </a>
+          </div>
+
+          <h2>Overview</h2>
+          <h3> NOTE: THE WEBSITE PROVIDED ABOVE IS THE DEMO VERSION, NOT FINAL.</h3>
+          <p>
+            GhostShift is a secure e-commerce web application created as part of a web development project. The website allows users to browse Japanese car parts, search products, add items to a shopping cart, register accounts and place orders through a fully functional checkout system.
+
+            Alongside building the shopping experience itself, I wanted to focus heavily on backend development and web security. The application uses PHP and MySQL to manage user accounts, products and orders while implementing protections against common web attacks such as SQL injection and session hijacking.
+
+            Although the final school submission included additional backend files that I no longer have, the project remains available on GitHub as a working demonstration of the frontend, shopping cart and core functionality.
+          </p>
+
+          <h2>Skills Demonstrated</h2>
+          <ul>
+        <li>PHP backend development</li>
+          <li>MySQL database design</li>
+          <li>HTML5 & CSS3</li>
+          <li>JavaScript</li>
+          <li>User authentication</li>
+          <li>Password hashing</li>
+          <li>Prepared SQL statements</li>
+          <li>Session management</li>
+          <li>Shopping cart development</li>
+          <li>Search functionality</li>
+          <li>Input validation</li>
+          <li>Basic web security</li>
+          </ul>
+
+          <h2>Tools Used</h2>
+          <ul>
+          <li>PHP</li>
+          <li>MySQL / phpMyAdmin</li>
+          <li>JavaScript</li>
+          <li>HTML5</li>
+          <li>CSS3</li>
+          <li>VS Code</li>
+          <li>GitHub</li>
+          </ul>
+
+          <h2>Process</h2>
+
+          <h3>Building the Store</h3>
+          <p>
+            I started by creating the frontend of the website, designing a simple online store where users could browse Japanese car parts, search products and add them to a shopping cart. I wanted the website to behave like a real online shop rather than just displaying static products.
+          </p>
+
+
+          <h3>Shopping Cart & Checkout</h3>
+          <p>I implemented a shopping cart that dynamically updates as products are added or removed. Users can review their selected items before entering their shipping details and placing an order.
+
+          When an order is submitted, the backend stores the purchase inside the MySQL database, demonstrating how frontend forms communicate with a backend server.</p>
+
+          <h3>User Authentication</h3>
+          <p>
+            To allow users to register and log in, I built a basic authentication system using PHP and MySQL.
+          </p>
+          <p>
+            Rather than storing passwords as plain text, passwords are securely hashed before being inserted into the database. During login, PHP verifies the entered password against the stored hash before creating a user session.
+          </p>
+
+          <span class="image main">
+            <img
+              src="/images/GhostShift/databasehash.jpg"
+            />
+          </span>
+
+          <h3>Database Integration</h3>
+          <p>
+            The application uses multiple MySQL tables to separate users, products and customer orders.
+          </p>
+          <p>
+            PHP handles communication between the website and the database, allowing products to be searched, users to authenticate and orders to be stored automatically.
+          </p>
+
+          <span class="image main">
+            <img
+              src="/images/GhostShift/tables.jpg"
+            />
+          </span>
+
+          <h3>Security Features</h3>
+          <p>
+            One of the main goals of this project was learning how common web attacks work and how to defend against them.
+          </p>
+          <p>
+            To improve the security of the application, I implemented:
+          </p>
+
+          <ul>
+          <li>Password hashing using PHP's password hashing functions.</li>
+          <li>Prepared SQL statements to prevent SQL injection attacks.</li>
+          <li>Session regeneration after login to reduce the risk of session hijacking.</li>
+          <li>Input validation throughout the application.</li>
+          </ul>
+
+          <span class="image main">
+            <img
+              src="/images/GhostShift/securityprevention1.jpg"
+            />
+          </span>
+
+          <span class="image main">
+            <img
+              src="/images/GhostShift/securityprevention2.jpg"
+            />
+          </span>
+
+          <span class="image main">
+            <img
+              src="/images/GhostShift/securityprevention3.jpg"
+            />
+          </span>
+
+          <span class="image main">
+            <img
+              src="/images/GhostShift/securityprevention4.jpg"
+            />
+          </span>
+
+
+          <span class="image main">
+            <img
+              src="/images/GhostShift/securityprevention5.jpg"
+            />
+          </span>
+
+
+          <span class="image main">
+            <img
+              src="/images/GhostShift/securityprevention6.jpg"
+            />
+          </span>
+
+          <p>While demonstrating the project, I also researched XSS protection. Although the final login page wasn't fully protected due to time constraints, I understood how PHP's htmlspecialchars() function could be used to safely render user input and prevent injected scripts from executing.</p>
+          
+          <h2>What I Learned</h2>
+          <p>
+            This project really changed how I looked at web development because it was the first time I built something that combined frontend design, backend programming, databases and security into one application.
+
+            I became much more comfortable using PHP to communicate with MySQL, designing relational databases, building authentication systems and implementing security measures that I'd previously only read about.
+
+            It also introduced me to secure coding practices like password hashing, prepared statements and session management. While I didn't fully finish the XSS protection before submitting the project, researching it helped me understand how web applications should safely handle user input, and it's something I've continued applying in later projects.
+
+            Looking back, this was one of the projects that really made backend web development "click" for me.
+          </p>
+
+          <ul class="actions special">
+            <li>
+              <a href="../index.html#projects" class="button"
+                >Back to Projects</a
+              >
+            </li>
+          </ul>
+        </article>
+      </div>
+
+      <!-- Footer -->
+      <footer id="footer">
+        <section></section>
+        <section class="split contact">
+          <section class="alt">
+            <h3>Location</h3>
+            <p>Northampton, Northamptonshire, England</p>
+          </section>
+          <section>
+            <h3>Email</h3>
+            <p><a href="#">ianisp.contact@gmail.com</a></p>
+          </section>
+          <section>
+            <h3>Social</h3>
+            <ul class="icons alt">
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/ianis-panga-a02970305/"
+                  class="icon brands alt fa-linkedin"
+                  ><span class="label">Linkedin</span></a
+                >
+              </li>
+            </ul>
+          </section>
+        </section>
+      </footer>
+
+      <!-- Copyright -->
+      <div id="copyright">
+        <ul>
+          <li>&copy; Untitled</li>
+          <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

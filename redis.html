@@ -1,0 +1,208 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Redis Misconfiguration Exploitation</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript
+      ><link rel="stylesheet" href="assets/css/noscript.css"
+    /></noscript>
+  </head>
+  <body class="is-preload">
+    
+
+      <!-- Header -->
+      <header id="header">
+        <a href="index.html" class="logo">Ianis Panga</a>
+      </header>
+
+      <!-- Nav -->
+      <nav id="nav">
+        <ul class="links">
+          <li class="active"><a href="index.html">Projects</a></li>
+        </ul>
+        <ul class="icons">
+          <li>
+            <a
+              href="https://www.linkedin.com/in/ianis-panga-a02970305/"
+              class="icon brands alt fa-linkedin"
+              ><span class="label">Linkedin</span></a
+            >
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Main -->
+      <div id="main">
+        <article class="post">
+          <header class="major">
+            <h1>Redis Misconfiguration Exploitation</h1>
+            <p>
+              Identified and exploited an exposed Redis server caused by insecure configuration. This project demonstrates network enumeration, service identification, interacting with Redis using the command line, and extracting data from an unsecured database in a safe lab environment.
+            </p>
+            <h3> Disclaimer</h3>
+            <p>This proof-of-concept was developed and tested exclusively in an isolated environment for educational and defensive cybersecurity purposes.</p>
+            </p>
+          </header>
+
+          <h2>Overview</h2>
+          <p>
+            This project demonstrates how to install, verify, and remove
+            Suricata on a Linux system using the APT package manager. The goal
+            was to practise Linux software deployment, dependency handling, and
+            basic IDS setup within a controlled environment.
+          </p>
+
+          <h2>Skills Demonstrated</h2>
+          <ul>
+          <li>Network enumeration</li>
+          <li>Nmap scanning</li>
+          <li>Redis enumeration</li>
+          <li>Redis CLI usage</li>
+          <li>Service identification</li>
+          <li>Linux command line</li>
+          <li>Database exploration</li>
+          <li>Penetration testing methodology</li>
+          <li>Vulnerability assessment</li>
+          <li>Security misconfiguration analysis</li>
+          </ul>
+
+          <h2>Tools Used</h2>
+          <ul>
+          <li>Kali Linux</li>
+          <li>Nmap</li>
+          <li>Redis CLI</li>
+          <li>Redis</li>
+          </ul>
+
+          <h2>Process</h2>
+
+          <h3>Network Enumeration</h3>
+          <p>
+            The first step was identifying any exposed services running on the target machine. Using Nmap, I performed a service and version scan to discover open ports and determine which services were available. The scan revealed an exposed Redis service running on its default port.
+          </p>
+          
+          <pre><code>sudo nmap -sVC -p 1-10000 -O -Pn (ip_address) </code></pre>
+          <span class="image main">
+            <img
+              src="/images/Redis/1.png"
+            />
+          </span>
+
+          <span class="image main">
+              <img
+                 src="/images/Redis/2.png"
+              />
+          </span>
+
+
+          <h3>Understanding Redis</h3>
+          <p>Before interacting with the service, I researched how Redis works and learned that it stores information as key-value pairs entirely in memory. Understanding the database structure made it much easier to navigate once connected.</p>
+
+
+          <h3>Connecting to the Server</h3>
+          <p>
+            Since the Redis instance had no authentication configured, I was able to connect directly using the Redis command-line client. This demonstrated how dangerous default configurations can be when services are exposed to a network.
+          </p>
+
+          <pre><code>redis-cli -h (ip_address) </code></pre>
+
+          <span class="image main">
+            <img
+              src="/images/Redis/3.png"
+            />
+          </span>
+
+          <h3>Enumerating the Database</h3>
+          <p>After connecting, I used Redis commands such as INFO to gather information about the server before listing every available key stored inside the database. This allowed me to understand what data was available without modifying any information</p>
+
+          <span class="image main">
+            <img
+              src="/images/Redis/4.png"
+            />
+          </span>
+
+          <h3>Reading Stored Data</h3>
+          <p>
+            Finally, I queried individual keys to retrieve their stored values. This demonstrated how an attacker could access sensitive information if a Redis server is left publicly accessible without proper authentication or network restrictions.
+          </p>
+
+          <pre><code>KEYS * </code></pre>
+
+          <span class="image main">
+            <img
+              src="/images/Redis/5.png"
+            />
+          </span>
+
+          <span class="image main">
+            <img
+              src="/images/Redis/6.png"
+            />
+          </span>
+
+          <h2>What I Learned</h2>
+          <p>
+            This project improved my understanding of service enumeration and reinforced that security vulnerabilities are not always caused by software flaws many are the result of insecure configurations. I became more comfortable using Nmap to identify exposed services, interacting with Redis through the command line, and understanding how attackers can enumerate databases when authentication has not been configured correctly.
+          </p>
+
+          <ul class="actions special">
+            <li>
+              <a href="../index.html#projects" class="button"
+                >Back to Projects</a
+              >
+            </li>
+          </ul>
+        </article>
+      </div>
+
+      <!-- Footer -->
+      <footer id="footer">
+        <section></section>
+        <section class="split contact">
+          <section class="alt">
+            <h3>Location</h3>
+            <p>Northampton, Northamptonshire, England</p>
+          </section>
+          <section>
+            <h3>Email</h3>
+            <p><a href="#">ianisp.contact@gmail.com</a></p>
+          </section>
+          <section>
+            <h3>Social</h3>
+            <ul class="icons alt">
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/ianis-panga-a02970305/"
+                  class="icon brands alt fa-linkedin"
+                  ><span class="label">Linkedin</span></a
+                >
+              </li>
+            </ul>
+          </section>
+        </section>
+      </footer>
+
+      <!-- Copyright -->
+      <div id="copyright">
+        <ul>
+          <li>&copy; Untitled</li>
+          <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

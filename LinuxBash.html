@@ -1,0 +1,203 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Linux Bash Shell</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript
+      ><link rel="stylesheet" href="assets/css/noscript.css"
+    /></noscript>
+  </head>
+  <body class="is-preload">
+    
+
+      <!-- Header -->
+      <header id="header">
+        <a href="index.html" class="logo">Ianis Panga</a>
+      </header>
+
+      <!-- Nav -->
+      <nav id="nav">
+        <ul class="links">
+          <li class="active"><a href="index.html">Projects</a></li>
+        </ul>
+        <ul class="icons">
+          <li>
+            <a
+              href="https://www.linkedin.com/in/ianis-panga-a02970305/"
+              class="icon brands alt fa-linkedin"
+              ><span class="label">Linkedin</span></a
+            >
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Main -->
+      <div id="main">
+        <article class="post">
+          <header class="major">
+            <h1>Linux Bash Shell: <br>Linux File Permission Management</h1>
+            <p>
+              Used Linux command-line tools to identify and correct insecure file and directory permissions by applying the principle of least privilege with chmod.
+            </p>
+          </header>
+
+          <h2>Overview</h2>
+          <p>
+            This project demonstrates how Linux file and directory permissions can be inspected and modified using Bash commands. I reviewed the permissions of several files, identified security issues, and corrected them using chmod to ensure users, groups and others only had the permissions they required.
+          </p>
+
+          <h2>Skills Demonstrated</h2>
+          <ul>
+          <li>Linux command line</li>
+          <li>Linux file permissions</li>
+          <li>File system navigation</li>
+          <li>Bash shell usage</li>
+          <li>Permission management</li>
+          <li>Directory permissions</li>
+          <li>Hidden file management</li>
+          <li>Principle of least privilege</li>
+          <li>System administration fundamentals</li>
+          </ul>
+
+          <h2>Tools Used</h2>
+          <ul>
+          <li>Linux</li>
+          <li>Bash Shell</li>
+          <li>chmod</li>
+          <li>ls</li>
+          </ul>
+
+          <h2>Process</h2>
+
+          <h3>Inspecting Permissions</h3>
+          <p>
+            I first navigated to the project directory and listed the contents using ls -l to inspect the permissions assigned to each file. I also used ls -la to reveal hidden files that would not normally appear in the standard directory listing.
+          </p>
+
+          <span class="image main">
+            <img
+              src="/images/linuxbashfiles/1.png"
+            />
+          </span>
+
+          <span class="image main">
+            <img
+              src="/images/linuxbashfiles/2.png"
+            />
+          </span>
+
+          <h3>Correcting File Permissions</h3>
+          <p>After identifying files with incorrect permissions, I modified them using chmod. This included removing unnecessary write permissions for other users and restricting access so only the file owner could modify sensitive files.</p>
+
+          <pre><code>chmod o-w project_k.txt</code></pre>
+          <span class="image main">
+            <img
+              src="/images/linuxbashfiles/3.png"
+            />
+          </span>
+
+          <h3>Managing Hidden Files</h3>
+          <p>
+            The project also included a hidden file with overly permissive access. I adjusted the permissions to remove unnecessary write access while ensuring users retained only the permissions required.
+          </p>
+
+          <span class="image main">
+            <img
+              src="/images/linuxbashfiles/4.png"
+            />
+          </span>
+
+          <span class="image main">
+            <img
+              src="/images/linuxbashfiles/5.png"
+            />
+          </span>
+
+          <h3>Securing Directories</h3>
+          <p>
+            Finally, I corrected permissions on the project directory itself by removing unnecessary execute permissions from the group. This prevented unintended access while keeping the directory functional for its owner.
+          </p>
+
+          <span class="image main">
+            <img
+              src="/images/linuxbashfiles/6.png"
+            />
+          </span>
+
+          <h2>Code Breakdown</h2>
+          <h3>Viewing File Permissions</h3>
+          <p>The ls -l command displays each file's permissions, ownership and other metadata, making it easy to identify files that have been configured insecurely. Adding the -a flag includes hidden files in the output.</p>
+
+
+          <h3>Modifying Permissions</h3>
+          <p>The chmod command was used throughout the project to add and remove specific permissions for users, groups and others. Rather than assigning completely new permission values, I modified only the permissions that required changing.</p>
+          
+          <h3>Applying Least Privilege</h3>
+          <p>Each permission change followed the principle of least privilege by ensuring users only had the minimum level of access required. This reduces the risk of accidental modification or unauthorised access to files and directories.</p>
+          
+          <h2>What I Learned</h2>
+          <p>
+            Although this was one of my beginner projects when I first started learning, working through this exercise helped me become much more comfortable reading Linux permission strings and understanding what each permission actually allows. I also gained more confidence using chmod to modify permissions and learned why correctly securing files and directories is an important part of Linux system administration and security.
+          </p>
+
+          <ul class="actions special">
+            <li>
+              <a href="../index.html#projects" class="button"
+                >Back to Projects</a
+              >
+            </li>
+          </ul>
+        </article>
+      </div>
+
+      <!-- Footer -->
+      <footer id="footer">
+        <section></section>
+        <section class="split contact">
+          <section class="alt">
+            <h3>Location</h3>
+            <p>Northampton, Northamptonshire, England</p>
+          </section>
+          <section>
+            <h3>Email</h3>
+            <p><a href="#">ianisp.contact@gmail.com</a></p>
+          </section>
+          <section>
+            <h3>Social</h3>
+            <ul class="icons alt">
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/ianis-panga-a02970305/"
+                  class="icon brands alt fa-linkedin"
+                  ><span class="label">Linkedin</span></a
+                >
+              </li>
+            </ul>
+          </section>
+        </section>
+      </footer>
+
+      <!-- Copyright -->
+      <div id="copyright">
+        <ul>
+          <li>&copy; Untitled</li>
+          <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

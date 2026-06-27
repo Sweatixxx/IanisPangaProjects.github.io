@@ -1,0 +1,202 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Suricata</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript
+      ><link rel="stylesheet" href="assets/css/noscript.css"
+    /></noscript>
+  </head>
+  <body class="is-preload">
+    
+
+      <!-- Header -->
+      <header id="header">
+        <a href="index.html" class="logo">Ianis Panga</a>
+      </header>
+
+      <!-- Nav -->
+      <nav id="nav">
+        <ul class="links">
+          <li class="active"><a href="index.html">Projects</a></li>
+        </ul>
+        <ul class="icons">
+          <li>
+            <a
+              href="https://www.linkedin.com/in/ianis-panga-a02970305/"
+              class="icon brands alt fa-linkedin"
+              ><span class="label">Linkedin</span></a
+            >
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Main -->
+      <div id="main">
+        <article class="post">
+          <header class="major">
+            <h1>Linux Software Deployment:<br />Suricata IDS</h1>
+            <p>
+              Installed and verified Suricata on Linux to demonstrate package
+              management, command-line usage, and basic intrusion detection
+              system deployment.
+            </p>
+          </header>
+
+          <h2>Overview</h2>
+          <p>
+            This project demonstrates how to install, verify, and remove
+            Suricata on a Linux system using the APT package manager. The goal
+            was to practise Linux software deployment, dependency handling, and
+            basic IDS setup within a controlled environment.
+          </p>
+
+          <h2>Skills Demonstrated</h2>
+          <ul>
+            <li>Linux terminal usage</li>
+            <li>APT package management</li>
+            <li>Software installation and removal</li>
+            <li>Basic IDS understanding</li>
+            <li>Command-line verification</li>
+          </ul>
+
+          <h2>Tools Used</h2>
+          <ul>
+            <li>Linux</li>
+            <li>Bash</li>
+            <li>APT</li>
+            <li>Suricata</li>
+          </ul>
+
+          <h2>Process</h2>
+
+          <h3>Checking APT</h3>
+          <p>
+            I first checked that APT was available on the system, as it would be
+            used to install and manage the Suricata package.
+          </p>
+          <span class="image main">
+            <img
+              src="/images/Suricata/suricata-apt.png"
+              alt="APT command output in Linux terminal"
+            />
+          </span>
+
+          <h3>Installing Suricata</h3>
+          <p>I installed Suricata using the command below:</p>
+
+          <pre><code>sudo apt install suricata</code></pre>
+
+          <span class="image main">
+            <img
+              src="/images/Suricata/suricata-install.png"
+              alt="Suricata installation using apt"
+            />
+          </span>
+
+          <h3>Verifying Installation</h3>
+          <p>
+            After installation, I verified that Suricata was available by
+            running the Suricata command in the terminal.
+          </p>
+
+          <span class="image main">
+            <img
+              src="../images/Suricata/suricata-verify.png"
+              alt="Suricata command output after installation"
+            />
+          </span>
+
+          <h3>Removing Suricata</h3>
+          <p>To demonstrate package removal, I removed Suricata using APT.</p>
+
+          <pre><code>sudo apt remove suricata</code></pre>
+
+          <span class="image main">
+            <img
+              src="../images/Suricata/suricata-unistall.png"
+              alt="Removing Suricata using apt"
+            />
+          </span>
+
+          <h3>Confirming Removal</h3>
+          <p>
+            I confirmed the package was removed by attempting to run Suricata
+            again, which returned a command not found error.
+          </p>
+
+          <span class="image main">
+            <img
+              src="../images/Suricata/suricata-deleted.png"
+              alt="Suricata command not found after removal"
+            />
+          </span>
+
+          <h2>What I Learned</h2>
+          <p>
+            This project improved my confidence using Linux package management
+            tools and documenting a command-line workflow. It also introduced me
+            to the basics of deploying IDS software in a Linux environment.
+          </p>
+
+          <ul class="actions special">
+            <li>
+              <a href="../index.html#projects" class="button"
+                >Back to Projects</a
+              >
+            </li>
+          </ul>
+        </article>
+      </div>
+
+      <!-- Footer -->
+      <footer id="footer">
+        <section></section>
+        <section class="split contact">
+          <section class="alt">
+            <h3>Location</h3>
+            <p>Northampton, Northamptonshire, England</p>
+          </section>
+          <section>
+            <h3>Email</h3>
+            <p><a href="#">ianisp.contact@gmail.com</a></p>
+          </section>
+          <section>
+            <h3>Social</h3>
+            <ul class="icons alt">
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/ianis-panga-a02970305/"
+                  class="icon brands alt fa-linkedin"
+                  ><span class="label">Linkedin</span></a
+                >
+              </li>
+            </ul>
+          </section>
+        </section>
+      </footer>
+
+      <!-- Copyright -->
+      <div id="copyright">
+        <ul>
+          <li>&copy; Untitled</li>
+          <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

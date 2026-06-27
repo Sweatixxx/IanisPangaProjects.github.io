@@ -1,0 +1,270 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Pi-hole</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript
+      ><link rel="stylesheet" href="assets/css/noscript.css"
+    /></noscript>
+  </head>
+  <body class="is-preload">
+    
+
+      <!-- Header -->
+      <header id="header">
+        <a href="index.html" class="logo">Ianis Panga</a>
+      </header>
+
+      <!-- Nav -->
+      <nav id="nav">
+        <ul class="links">
+          <li class="active"><a href="index.html">Projects</a></li>
+        </ul>
+        <ul class="icons">
+          <li>
+            <a
+              href="https://www.linkedin.com/in/ianis-panga-a02970305/"
+              class="icon brands alt fa-linkedin"
+              ><span class="label">Linkedin</span></a
+            >
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Main -->
+      <div id="main">
+        <article class="post">
+          <header class="major">
+            <h1>Linux Raspberry Pi<br />Pi-hole Network-wide Ad Blocking Server</h1>
+            <p>
+              Configured and secured a Raspberry Pi running Pi-hole to provide network-wide DNS filtering, advertisement blocking, and additional security hardening using Linux administration tools.
+            </p>
+          </header>
+
+          <h2>Overview</h2>
+          <p>
+            This project involved deploying Pi-hole on a Raspberry Pi Zero 2 W to create a DNS-based advertisement and tracker blocking solution for my home network.
+            Rather than stopping after installation, I also hardened the system by configuring a static IP address, securing SSH, deploying Fail2Ban, enabling a firewall with UFW, and configuring the router to use the Raspberry Pi as its primary DNS server.
+            This gave me practical experience administering Linux systems while improving both network performance and security.
+          </p>
+
+          <h2>Skills Demonstrated</h2>
+          <ul>
+            <li>Linux system administration</li>
+            <li>Raspberry Pi deployement</li>
+            <li>DNS configuration</li>
+            <li>Network security</li>
+            <li>SSH hardening</li>
+            <li>Firewall configuration</li>
+            <li>Fail2Ban configuration</li>
+            <li>Static IP configuration</li>
+            <li>Router administration</li>
+            <li>Linux terminal usage</li>
+            <li>Remote administration with SSH</li>
+          </ul>
+
+          <h2>Tools Used</h2>
+          <ul>
+            <li>Raspberry Pi Zero 2 W</li>
+            <li>Raspberry Pi OS Lite</li>
+            <li>Pi-hole</li>
+            <li>Bash</li>
+            <li>SSH</li>
+            <li>Fail2Ban</li>
+            <li>UFW Firewall</li>
+            <li>Nano</li>
+            <li>Vodafone Router</li>
+          </ul>
+
+          <h2>Process</h2>
+
+          <h3>Installing Raspberry Pi OS</h3>
+          <p>
+            I installed Raspberry Pi OS Lite onto a microSD card using Raspberry Pi Imager before completing the initial operating system setup. This included updating packages, enabling SSH, and preparing the device for remote administration.
+          </p>
+          <span class="image main">
+            <img
+              src="/images/Pi-Hole/2_installingOS.jpg"/>
+          </span>
+
+          <span class="image main">
+            <img
+              src="/images/Pi-Hole/3_actuallyinstallingOS.jpg"/>
+          </span>
+
+          <h3>Configuring a Static IP Address</h3>
+          <p>Since Pi-hole acts as the network's DNS server, it requires a static IP address. I configured the Raspberry Pi with a fixed address to ensure connected devices could always locate the DNS Service.</p>
+
+
+          <span class="image main">
+            <img
+              src="/images/Pi-Hole/4_settingStaticIP.jpg"/>
+          </span>
+
+          <span class="image main">
+            <img
+              src="/images/Pi-Hole/5_StaticIPSet.jpg"/>
+          </span>
+
+          <h3>Installing Pi-hole</h3>
+          <p>
+            After configuring networking, I installed Pi-hole using the official installer. Once complete, I accessed the web administration dashboard and configured multiple DNS blocklists to filter advertisements, trackers, and known malicious domains.
+          </p>
+
+          <span class="image main">
+            <img
+              src="/images/Pi-Hole/6_InstallingPiHole.jpg"/>
+          </span>
+
+          <span class="image main">
+            <img
+              src="/images/Pi-Hole/7_settingupDomains.jpg"/>
+          </span>
+
+
+          <h3>Hardening SSH</h3>
+          <p>To reduce the attack surface, I modified the SSH configuration by moving the service away from the default port and restarted the SSH daemon to apply the changes.</p>
+
+          <span class="image main">
+            <img
+              src="/images/Pi-Hole/11_SecuritySSH.jpg"/>
+          </span>
+
+          <span class="image main">
+            <img
+              src="/images/Pi-Hole/12_SecuritySSH2.jpg"/>
+          </span>
+
+          <span class="image main">
+            <img
+              src="/images/Pi-Hole/13_SecuritySSH3.jpg"/>
+          </span>
+
+          <span class="image main">
+            <img
+              src="/images/Pi-Hole/14_SecuritySSH4.jpg"/>
+          </span>
+
+
+          <h3>Installing Fail2Ban</h3>
+          <p>
+            I installed Fail2Ban and enabled SSH protection to automatically detect repeated failed login attempts and temporarily ban offending IP addresses.
+          </p>
+
+          <span class="image main">
+            <img
+              src="/images/Pi-Hole/15_SecurityBrute.jpg"/>
+          </span>
+
+          <span class="image main">
+            <img
+              src="/images/Pi-Hole/17_SecurityBrute3.jpg"/>
+          </span>
+          
+
+          <h3>Configuring UFW Firewall</h3>
+          <p>
+            UFW was configured to allow only the services required for Pi-hole operation, including DNS, HTTP for the web interface, and my custom SSH port, before enabling the firewall.
+          </p>
+
+          <span class="image main">
+            <img
+              src="/images/Pi-Hole/18_Firewall.jpg"/>
+          </span>
+
+          <span class="image main">
+            <img
+              src="/images/Pi-Hole/19_Firewall2.jpg"/>
+          </span>
+
+
+          <h3>Router Configuration</h3>
+          <p>
+            Finally, I configured my router to use the Raspberry Pi as the network's DNS server. This allowed every connected device to automatically benefit from Pi-hole's filtering capabilities.
+
+          <span class="image main">
+            <img
+              src="/images/Pi-Hole/20_SettingupRouter.jpg"/>
+          </span>
+
+
+          <h3>Final Result</h3>
+          <p> After deployement, the system successfully blocked advertisments, trackers, and malicious domains across my entire network while remaining lightweight enough to run continuously on the Raspberry Pi Zero 2 W.</p>
+
+
+          <span class="image main">
+            <img
+              src="/images/Pi-Hole/8_Finished.jpg"/>
+          </span>
+
+          <span class="image main">
+            <img
+              src="/images/Pi-Hole/21_Running.jpg"/>
+          </span>
+
+          <h2>What I Learned</h2>
+          <p>
+          This project significantly improved my understanding of Linux system administration, DNS, and network security. I gained hands-on experience deploying services on Raspberry Pi hardware, remotely administering Linux systems through SSH, configuring firewall rules, hardening network services, and documenting a complete deployment process from installation to production use.
+          </p>
+
+          <ul class="actions special">
+            <li>
+              <a href="../index.html#projects" class="button"
+                >Back to Projects</a
+              >
+            </li>
+          </ul>
+        </article>
+      </div>
+
+      <!-- Footer -->
+      <footer id="footer">
+        <section></section>
+        <section class="split contact">
+          <section class="alt">
+            <h3>Location</h3>
+            <p>Northampton, Northamptonshire, England</p>
+          </section>
+          <section>
+            <h3>Email</h3>
+            <p><a href="#">ianisp.contact@gmail.com</a></p>
+          </section>
+          <section>
+            <h3>Social</h3>
+            <ul class="icons alt">
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/ianis-panga-a02970305/"
+                  class="icon brands alt fa-linkedin"
+                  ><span class="label">Linkedin</span></a
+                >
+              </li>
+            </ul>
+          </section>
+        </section>
+      </footer>
+
+      <!-- Copyright -->
+      <div id="copyright">
+        <ul>
+          <li>&copy; Untitled</li>
+          <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

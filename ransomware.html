@@ -1,0 +1,262 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Python Ransomware Simulation</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript
+      ><link rel="stylesheet" href="assets/css/noscript.css"
+    /></noscript>
+  </head>
+  <body class="is-preload">
+    
+
+      <!-- Header -->
+      <header id="header">
+        <a href="index.html" class="logo">Ianis Panga</a>
+      </header>
+
+      <!-- Nav -->
+      <nav id="nav">
+        <ul class="links">
+          <li class="active"><a href="index.html">Projects</a></li>
+        </ul>
+        <ul class="icons">
+          <li>
+            <a
+              href="https://www.linkedin.com/in/ianis-panga-a02970305/"
+              class="icon brands alt fa-linkedin"
+              ><span class="label">Linkedin</span></a
+            >
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Main -->
+      <div id="main">
+        <article class="post">
+          <header class="major">
+            <h1>Python Ransomware Simulation</h1>
+            <p>
+            A proof-of-concept demonstrating how ransomware encrypts files within a controlled Linux environment using Python and the Fernet cryptography library.
+            <h3> Disclaimer</h3>
+            <p>This proof-of-concept was developed and tested exclusively in an isolated environment for educational and defensive cybersecurity purposes.</p>
+            </p>
+          </header>
+
+          <h2>Overview</h2>
+          <p>
+            This project demonstrates the complete lifecycle of a basic ransomware attack using Python. The proof-of-concept encrypts every file within a specified directory, prevents the contents from being read, and provides a separate decryption program that restores the files when the correct secret phrase is entered.
+          </p>
+
+          <h2>Skills Demonstrated</h2>
+          <ul>
+          <li>Python programming</li>
+          <li>Linux command-line usage</li>
+          <li>File system traversal</li>
+          <li>Binary file handling</li>
+          <li>Symmetric encryption (Fernet)</li>
+          <li>Cryptographic key generation</li>
+          <li>File encryption and decryption</li>
+          <li>Python file I/O operations</li>
+          <li>Secure key management concepts</li>
+          <li>Cybersecurity proof-of-concept development</li>
+          <li>Malware behaviour analysis</li>
+          <li>Educational security research</li>
+          </ul>
+
+          <h2>Tools Used</h2>
+          <ul>
+            <li>Kali Linux</li>
+            <li>Python</li>
+            <li>Fernet (Cryptography)</li>
+          </ul>
+
+          <h2>Process</h2>
+
+          <h3>Creating the Test Environment</h3>
+          <p>
+            Before showcasing how the script works, let's test it out.</p>
+           <p>On the first image, I created a bunch of files including a directory which we will be encrypting using the script I made. Encryption will be applied strictly on files and not directories just for this showcase, but note that with this script it's possible to encrypt every file type on the system.
+          </p>
+          <p>In the second image, i'm showcasing thatt we are able to read the contents of each file as seen in the image. Now let's run the script and encrypt them.</p>
+
+          <span class="image main">
+            <img
+              src="/images/Ransomware/Creating_the_files.jpeg.jpg"
+            />
+          </span>
+
+         <span class="image main">
+            <img
+              src="/images/Ransomware/Showcasing_encryption_1.jpeg.jpg"
+            />
+          </span>
+
+          <h3>Running the Encryption Script</h3>
+          <p>After running the script, it prints out a message notifying the user that all their files have been encrypted and the hacker is demanding bitcoin payment.</p>
+
+          <span class="image main">
+            <img
+              src="/images/Ransomware/Showcasing_encryption_2.jpeg.jpg"
+              alt="Suricata installation using apt"
+            />
+          </span>
+
+          <h3>Verifying Encryption</h3>
+          <p>
+            Now let's try and read the contents of the previous files again.
+          </p>
+
+          <p>
+            As you can see, all the content of the files are encrypted, there is no way the user can read the content of the files or decrypt them by themselves. 
+          </p>
+
+          <p>
+            Only way to access the contents of the files again, is for the hacker to provide the secret phrase which the user will have to type to decrypt their files. 
+          </p>
+
+          <span class="image main">
+            <img
+              src="/images/Ransomware/Showcasing_encryption_3.jpeg.jpg"
+            />
+          </span>
+          
+          <h3> Decrypting the files</h3>
+          <p> Now let's assume the user has transferred the desired amount of bitcoin to the hacker. The hacker then runs the decryption script and provides the user with the necessary phrase to decrypt the contents of their files</p>
+          <p> In the first image you can see the user is writing the secret phrase which is "ransomware"</p>
+          <p> The second image shows that their files have been successfully decrypted as they can be read again.</p>
+
+          <span class="image main">
+            <img
+              src="/images/Ransomware/Showcasing_decryption_1.jpeg.jpg"
+
+            />
+          </span>
+          
+          <span class="image main">
+            <img
+              src="/images/Ransomware/Showcasing_decryption_2.jpeg.jpg"
+              alt="Removing Suricata using apt"
+            />
+          </span>
+
+          <h2>Code Breakdown</h2>
+          <h3>File Enumeration</h3>
+          <p>The first thing the script does is create an empty list called files. This list will store every file inside the current directory that we want to encrypt. </p>
+          <p>To do this, the script loops through everything in the directory using os.listdir(). It skips ransomware.py, decrypt.py, and the encryption key because encrypting those would make it impossible to recover the files later. Finally, os.path.isfile() is used so that only files are added to the list, while directories are ignored.</p>
+
+          <span class="image main">
+            <img
+              src="/images/Ransomware/Encryption_store_all_files_in_a_variable.jpg"
+              alt="Removing Suricata using apt"
+            />
+          </span>
+
+          <h3>Generating the Encryption Key</h3>
+          <p>
+            Once all the files have been collected, the script generates a unique Fernet encryption key. This key is what allows the files to be encrypted and later decrypted.
+          </p>
+          <p>The key is then saved as ransomware_key.key. In a real ransomware attack, this key would usually be kept by the attacker instead of being stored on the victim's machine, but for this proof-of-concept it allows us to demonstrate the full encryption and decryption process.</p>
+
+          <span class="image main">
+            <img
+              src="/images/Ransomware/save_key.jpg"
+            />
+          </span>
+
+          <h3>Encrypting the Files</h3>
+          <p>Now that we have a list of files and an encryption key, the script loops through each file one by one.</p>
+          <p>Each file is opened in binary mode (rb), its contents are read into memory, and then encrypted using the Fernet key we generated earlier. The encrypted data is stored inside a variable called contents_encrypted.</p>
+          <span class="image main">
+            <img
+              src="/images/Ransomware/Encryption_open_files_and_encrypt.jpg"
+            />
+          </span>
+        
+
+         <h3>Overwriting the Original Files</h3>
+          <p>The final step of the encryption process is replacing the original files with the encrypted versions.</p>
+          <p>The script opens each file again, this time in write-binary mode (wb), and overwrites the original contents with the encrypted data. At this point, the files can no longer be read normally and can only be restored using the correct encryption key.</p>
+          <span class="image main">
+            <img
+              src="/images/Ransomware/Encryption_overwrite_encryption.jpg"
+            />
+          </span>
+        
+         <h3>Building the Decryption Program</h3>
+          <p>The decryption script starts off almost the same way as the encryption script by collecting all the files in the directory. Instead of generating a new key, it loads the existing ransomware_key.key file that was created during encryption.</p>
+          <p>For this demonstration, I added a simple secret phrase (ransomware). If the correct phrase is entered, the script decrypts every encrypted file and restores the original contents. If the phrase is incorrect, nothing is decrypted.</p>
+          <span class="image main">
+            <img
+              src="/images/Ransomware/Decryption_showcase.jpg"
+            />
+          </span>
+        
+          <h2>What I Learned</h2>
+          <p>
+            This project gave me a much better understanding of how ransomware works behind the scenes and how modern encryption can be used to protect or abuse data. It also strengthened my Python programming skills, particularly when working with file handling, binary data, loops, and the Fernet cryptography library
+          </p>
+          <p>
+            Building both the encryption and decryption scripts helped me understand the importance of encryption key management and reinforced why ransomware attacks can be so damaging when encryption is implemented correctly. Most importantly, it gave me hands-on experience recreating a real world cyberattack in a safe, controlled environment for educational purposes.
+          </p>
+          <ul class="actions special">
+            <li>
+              <a href="../index.html#projects" class="button"
+                >Back to Projects</a
+              >
+            </li>
+          </ul>
+        </article>
+      </div>
+
+      <!-- Footer -->
+      <footer id="footer">
+        <section></section>
+        <section class="split contact">
+          <section class="alt">
+            <h3>Location</h3>
+            <p>Northampton, Northamptonshire, England</p>
+          </section>
+          <section>
+            <h3>Email</h3>
+            <p><a href="#">ianisp.contact@gmail.com</a></p>
+          </section>
+          <section>
+            <h3>Social</h3>
+            <ul class="icons alt">
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/ianis-panga-a02970305/"
+                  class="icon brands alt fa-linkedin"
+                  ><span class="label">Linkedin</span></a
+                >
+              </li>
+            </ul>
+          </section>
+        </section>
+      </footer>
+
+      <!-- Copyright -->
+      <div id="copyright">
+        <ul>
+          <li>&copy; Untitled</li>
+          <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
